@@ -1,0 +1,17 @@
+/target
+/.m2
+
+
+/.classpath
+/.project
+/.settings
+
+/caches
+/local.properties
+.*.swp
+.DS_Store
+.vscode
+/src/main/liberty/config/server.env
+
+src/main/liberty/config/server.env
+src/main/resources/localdev-config.json
