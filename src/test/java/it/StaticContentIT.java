@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.junit.Test;
@@ -18,7 +19,9 @@ public class StaticContentIT {
     public void testEndpoint() throws Exception {
         System.out.println("Testing endpoint " + url);
         Client client = ClientBuilder.newClient();
-        Invocation.Builder invoBuild = client.target(url).request();
+        Invocation.Builder invoBuild = client.target(url)
+            .request()
+            .accept(MediaType.TEXT_HTML);
         Response response = invoBuild.get();
         int responseCode = response.getStatus();
         String content = response.readEntity(String.class);
