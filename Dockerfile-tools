@@ -1,8 +1,12 @@
-FROM ibmjava:8-sdk
+# In the short term, we are using the OpenJDK for UBI. Long term, we will use
+# the IBM Java Small Footprint JVM (SFJ) for UBI, but that is not in public
+# Docker at the moment.
+FROM adoptopenjdk/openjdk8:ubi
 
-MAINTAINER IBM Java Engineering at IBM Cloud
+LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
-RUN apt-get update && apt-get install -y maven
+RUN yum -y install --disableplugin=subscription-manager maven \
+    && yum --disableplugin=subscription-manager clean all
 
 ENV PATH /project/target/liberty/wlp/bin/:$PATH
 
