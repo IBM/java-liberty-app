@@ -30,12 +30,12 @@ The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. T
 
 ## Steps
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?starterKit=a337767f-4569-3544-8691-3409848f1f06) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
 ### Deploying to IBM Cloud
 
 <p align="center">
-    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/caa66eb5-42d1-3a60-a256-8e7eae15a5f1/java-liberty-app">
+    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app">
     <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
     </a>
 </p>
