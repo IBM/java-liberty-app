@@ -17,7 +17,7 @@
 
 # Create and deploy a Java - MicroProfile / Java EE Cloud application
 
-> We have similar applications available for [Node.js](https://github.com/IBM/node-express-app), [Go](https://github.com/IBM/go-gin-app), [Java Spring](https://github.com/IBM/java-spring-app), [Python Flask](https://github.com/IBM/python-flask-app), [Python Django](https://github.com/IBM/python-django-app), and [Swift](https://github.com/IBM/swift-kitura-app).
+> We have applications available for [Node.js Express](https://github.com/IBM/node-express-app), [Go Gin](https://github.com/IBM/go-gin-app), [Python Flask](https://github.com/IBM/python-flask-app), [Python Django](https://github.com/IBM/python-django-app), [Java Spring](https://github.com/IBM/java-spring-app), [Java Liberty](https://github.com/IBM/java-liberty-app), and [Swift Kitura](https://github.com/IBM/swift-kitura-app).
 
 In this sample application, you will create a Java Liberty cloud application. This provides a starting point for creating Java web applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check.
 
@@ -30,12 +30,12 @@ The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. T
 
 ## Steps
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?starterKit=a337767f-4569-3544-8691-3409848f1f06) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
 ### Deploying to IBM Cloud
 
 <p align="center">
-    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/caa66eb5-42d1-3a60-a256-8e7eae15a5f1/java-liberty-app">
+    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app">
     <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
     </a>
 </p>
