@@ -22,7 +22,7 @@ for x in range(0, 3): #We have found that sometimes Java Liberty on Knative need
     if title_text == "IBM Cloud Starter":
         print("Experience Test Successful")
         sys.exit(0)
-    printf("Experience Test Failed: unexpected title text {}. Retrying.".format(title_text))
+    print("Experience Test Failed: unexpected title text {}. Retrying.".format(title_text))
     sleep(27)
 
 sys.exit("Experience Test Failed after 4 trys: unexpected title text {}".format(title_text))
