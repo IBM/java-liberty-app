@@ -14,9 +14,15 @@ time.sleep(3)
 
 # Verify the expected content is present
 # TODO change this when we change the landing page
-title_text = driver.title
-print("The title text is: {}".format(title_text))
-if title_text == "IBM Cloud Starter":
-    print("Experience Test Successful")
-else:
-    sys.exit("Experience Test Failed: unexpected title text {}".format(title_text))
+for x in range(0, 3): #We have found that sometimes Java Liberty on Knative needs a refresh once or twice to boot and show the correct landing  page
+    driver.refresh()
+    time.sleep(3)
+    title_text = driver.title
+    print("The title text is: {}".format(title_text))
+    if title_text == "IBM Cloud Starter":
+        print("Experience Test Successful")
+        sys.exit(0)
+    printf("Experience Test Failed: unexpected title text {}. Retrying.".format(title_text))
+    sleep(27)
+
+sys.exit("Experience Test Failed after 4 trys: unexpected title text {}".format(title_text))
