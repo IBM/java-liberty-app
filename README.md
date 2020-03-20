@@ -99,6 +99,8 @@ ibmcloud dev build --debug
 ibmcloud dev debug
 ```
 
+You can also verify the state of your locally running application using the Selenium UI test script included in the scripts/ directory.
+
 ## Next Steps
 * Learn more about augmenting your Java applications on IBM Cloud with the [Java Programming Guide](https://cloud.ibm.com/docs/java?topic=java-getting-started).
 * Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.

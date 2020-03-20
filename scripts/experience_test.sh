@@ -15,4 +15,4 @@ echo "Installing Selenium Python package..."
 pip install selenium
 
 echo "Running UI test using Selenium..."
-python3 java_liberty.py
+python3 experience_test.py
