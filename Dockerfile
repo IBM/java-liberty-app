@@ -13,7 +13,7 @@ RUN mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
 RUN ./mvnw install
 
 # Multi-stage build. New build stage that uses the UBI as the base image.
-FROM ibmcom/websphere-liberty:19.0.0.9-webProfile7-ubi-min
+FROM ibmcom/websphere-liberty:20.0.0.3-full-java8-ibmjava-ubi
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 ENV PATH /project/target/liberty/wlp/bin/:$PATH
 
