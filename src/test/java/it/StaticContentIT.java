@@ -1,6 +1,6 @@
 package it;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -8,11 +8,11 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class StaticContentIT {
 
-    private String port = System.getProperty("liberty.test.port");
+    private String port = System.getProperty("http.port");
     private String url = "http://localhost:" + port;
 
     @Test
@@ -26,7 +26,7 @@ public class StaticContentIT {
         int responseCode = response.getStatus();
         String content = response.readEntity(String.class);
         response.close();
-        assertTrue("Incorrect response code: " + responseCode, responseCode == 200);
-        assertTrue("Incorrect contents, expected to see 'IBM Cloud Starter', found: " + content, content.contains("IBM Cloud Starter"));
+        assertTrue(responseCode == 200, "Incorrect response code: " + responseCode);
+        assertTrue(content.contains("IBM Cloud Starter"), "Incorrect contents, expected to see 'IBM Cloud Starter', found: " + content);
     }
 }
