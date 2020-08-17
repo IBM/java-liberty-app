@@ -60,6 +60,7 @@ To get started building this application locally, you can either run the applica
 
 To build and run the application:
 1. `mvn liberty:dev`
+1. Press enter once the server is running to run integration tests.
 
 To run an application in Docker use the Docker file called `Dockerfile`. If you do not want to install Maven locally you can use `Dockerfile-tools` to build a container with Maven installed.
 
