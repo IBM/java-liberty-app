@@ -1,20 +1,26 @@
 <server description="Sample Liberty server">
 
   <featureManager>
-      <feature>microprofile-1.2</feature>
-      <feature>jndi-1.0</feature>
+      <feature>microProfile-3.3</feature>
+<!--      <feature>mpHealth-2.2</feature>-->
+<!--      <feature>jndi-1.0</feature>-->
+<!--      <feature>jaxrs-2.1</feature>-->
   </featureManager>
 
-  <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
-      id="defaultHttpEndpoint" host="*" />
+ <variable name="default.http.port" defaultValue="9080"/>
+ <variable name="default.https.port" defaultValue="9443"/>
+ <variable name="project.name" defaultValue="javalibertyapp"/>
 
+ <httpEndpoint id="defaultHttpEndpoint"
+               httpPort="${default.http.port}"
+               httpsPort="${default.https.port}"
+               host="*" />
 
-
-  <!-- Automatically expand WAR files and EAR files -->
+    <!-- Automatically expand WAR files and EAR files -->
   <applicationManager autoExpand="true"/>
 
   <applicationMonitor pollingRate="1000ms"/>
 
-  <webApplication name="javalibertyapp-1.0-SNAPSHOT" location="${app.location}" contextRoot="/"/>
+  <webApplication location="${project.name}.war" contextRoot="/"/>
 
 </server>
