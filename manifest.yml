@@ -1,15 +1,16 @@
----
 applications:
-- instances: 1
-  timeout: 180
-  name: javalibertyappcf
-  buildpack: liberty-for-java
-  path: ./target/javalibertyapp.war
+- buildpack: liberty-for-java
   disk_quota: 1G
-  memory: 512MB
-  domain: mybluemix.net
-  host: java-liberty-app-cf
+  domain: null
   env:
-    JAVA_OPTS: '-XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
-    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 20}]'
+    JAVA_OPTS: -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M
     JBP_CONFIG_LIBERTY: 'app_archive: {features: [microProfile-3.3]}'
+    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 20}]'
+  host: null
+  instances: 1
+  memory: 512MB
+  name: javalibertyappcf
+  path: ./target/javalibertyapp.war
+  routes:
+  - route: java-liberty.us-south.cf.appdomain.cloud
+  timeout: 180
