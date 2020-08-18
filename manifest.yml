@@ -1,16 +1,15 @@
+---
 applications:
-- buildpack: liberty-for-java
-  disk_quota: 1G
-  domain: null
-  env:
-    JAVA_OPTS: -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M
-    JBP_CONFIG_LIBERTY: 'app_archive: {features: [microProfile-3.3]}'
-    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 20}]'
-  host: null
-  instances: 1
-  memory: 512MB
-  name: javalibertyappcf
-  path: ./target/javalibertyapp.war
-  routes:
-  - route: java-liberty.us-south.cf.appdomain.cloud
-  timeout: 180
+  - instances: 1
+    timeout: 180
+    name: jliberty
+    buildpacks:
+      - liberty-for-java
+    path: ./target/javalibertyapp.war
+    memory: 256M
+    routes:
+      - route: jliberty.us-south.cf.appdomain.cloud
+    env:
+      JAVA_OPTS: '-XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
+      JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 20}]'
+      JBP_CONFIG_LIBERTY: 'app_archive: {features: [microProfile-3.3]}'
