@@ -1,28 +1,14 @@
-# IBM Java SDK UBI is not available on public docker yet. Use regular
-# base as builder until this is ready. For reference:
-# https://github.com/ibmruntimes/ci.docker/tree/master/ibmjava/8/sdk/ubi-min
-
-FROM ibmjava:8-sdk AS builder
+# Package the application as a war file
+FROM maven:3.6.3-ibmjava-8-alpine AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
+COPY pom.xml ./
+COPY src src/
+RUN mvn clean package
 
-WORKDIR /app
-COPY . /app
+# Copy the war file over to the open liberty image
+FROM openliberty/open-liberty:kernel-java8-openj9-ubi
 
-RUN apt-get update && apt-get install -y maven
-RUN mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
-RUN ./mvnw install
+COPY --from=builder --chown=1001:0 src/main/liberty/config/ /config/
+COPY --from=builder --chown=1001:0 target/*.war /config/apps/
 
-# Multi-stage build. New build stage that uses the UBI as the base image.
-FROM ibmcom/websphere-liberty:20.0.0.3-full-java8-ibmjava-ubi
-LABEL maintainer="IBM Java Engineering at IBM Cloud"
-ENV PATH /project/target/liberty/wlp/bin/:$PATH
-
-COPY --from=builder /app/target/liberty/wlp/usr/servers/defaultServer /config/
-
-# Grant write access to apps folder, this is to support old and new docker versions.
-# Liberty document reference : https://hub.docker.com/_/websphere-liberty/
-USER root
-RUN chmod g+w /config/apps
-USER 1001
-# install any missing features required by server config
-RUN installUtility install --acceptLicense defaultServer
+RUN configure.sh
