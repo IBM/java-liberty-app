@@ -4,12 +4,13 @@
       <feature>microProfile-3.3</feature>
   </featureManager>
 
- <variable name="default.http.port" defaultValue="9080"/>
+<!-- Allow port override via PORT env var -->
+ <variable name="PORT" defaultValue="9080"/>
  <variable name="default.https.port" defaultValue="9443"/>
  <variable name="project.name" defaultValue="javalibertyapp"/>
 
  <httpEndpoint id="defaultHttpEndpoint"
-               httpPort="${default.http.port}"
+               httpPort="${PORT}"
                httpsPort="${default.https.port}"
                host="*" />
 
