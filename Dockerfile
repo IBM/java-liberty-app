@@ -11,4 +11,8 @@ FROM openliberty/open-liberty:kernel-java8-openj9-ubi
 COPY --from=builder --chown=1001:0 src/main/liberty/config/ /config/
 COPY --from=builder --chown=1001:0 target/*.war /config/apps/
 
+ENV PORT 9080
+
+EXPOSE 9080
+
 RUN configure.sh
