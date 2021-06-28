@@ -11,6 +11,16 @@
 
 package application.health;
 
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Path;
+
 import javax.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.health.Liveness;
 import org.eclipse.microprofile.health.HealthCheck;
@@ -18,9 +28,21 @@ import org.eclipse.microprofile.health.HealthCheckResponse;
 
 @Liveness
 @ApplicationScoped
+@Path("health")
 public class SimpleLivenessCheck implements HealthCheck {
 
   @Override
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  @Operation(summary = "Get health of application")
+  @APIResponses(
+          value = {
+                  @APIResponse(
+                          responseCode = "200",
+                          description = "Json indicating health of application",
+                          content = @Content(mediaType = "application/json"))
+          }
+  )
   public HealthCheckResponse call() {
 
     // if not live logic
