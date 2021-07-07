@@ -19,7 +19,7 @@ for x in range(0, 3): #We have found that sometimes Java Liberty on Knative need
     time.sleep(3)
     title_text = driver.title
     print("The title text is: {}".format(title_text))
-    if title_text == "IBM Cloud Starter":
+    if title_text == "IBM Cloud Web Starter":
         print("Experience Test Successful")
         sys.exit(0)
     print("Experience Test Failed: unexpected title text {}. Retrying.".format(title_text))
