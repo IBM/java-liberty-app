@@ -1,15 +1,19 @@
 # Package the application as a war file
-FROM maven:3.8.4-ibmjava-8-alpine AS builder
+FROM registry.access.redhat.com/ubi8/openjdk-17:1.11 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
+
+WORKDIR /app
 COPY pom.xml ./
 COPY src src/
 RUN mvn clean package
 
 # Copy the war file over to the open liberty image
-FROM openliberty/open-liberty:kernel-java8-openj9-ubi
+FROM openliberty/open-liberty:kernel-slim-java17-openj9-ubi
 
-COPY --from=builder --chown=1001:0 src/main/liberty/config/ /config/
-COPY --from=builder --chown=1001:0 target/*.war /config/apps/
+COPY --from=builder --chown=1001:0 /app/src/main/liberty/config/ /config/
+COPY --from=builder --chown=1001:0 /app/target/*.war /config/apps
+
+RUN featureUtility installFeature microProfile-3.3
 
 ENV PORT 9080
 
