@@ -2,10 +2,12 @@
 FROM registry.access.redhat.com/ubi8/openjdk-17:1.11 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
+USER root
 WORKDIR /app
 COPY pom.xml ./
 COPY src src/
 RUN mvn clean package
+USER 1001
 
 # Copy the war file over to the open liberty image
 FROM openliberty/open-liberty:kernel-slim-java17-openj9-ubi
