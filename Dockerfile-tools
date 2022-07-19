@@ -1,8 +1,6 @@
-FROM ibmjava:8-sdk
+FROM registry.access.redhat.com/ubi8/openjdk-17:1.11
 
 MAINTAINER IBM Java Engineering at IBM Cloud
-
-RUN apt-get update && apt-get install -y maven
 
 ENV PATH /project/target/liberty/wlp/bin/:$PATH
 
