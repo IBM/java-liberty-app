@@ -12,6 +12,11 @@ USER 1001
 # Copy the war file over to the open liberty image
 FROM openliberty/open-liberty:kernel-slim-java17-openj9-ubi
 
+# disable vulnerable TLS algorithms
+USER root
+RUN sed -i 's/jdk.tls.disabledAlgorithms=/jdk.tls.disabledAlgorithms=SSLv2Hello, DES40_CBC, RC4_40, SSLv2, TLSv1, TLSv1.1, /g' /opt/java/openjdk/conf/security/java.security
+USER 1001
+
 COPY --from=builder --chown=1001:0 /app/src/main/liberty/config/ /config/
 COPY --from=builder --chown=1001:0 /app/target/*.war /config/apps
 
