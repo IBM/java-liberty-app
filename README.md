@@ -38,7 +38,7 @@ You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/a
 **Deprecated**: IBM® Cloud Foundry is deprecated. For more information, see [Deprecation of IBM Cloud Foundry](http://ibm.biz/ibmcf-announce).
 
 <p align="center">
-    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app">
+    <a href="https://cloud.ibm.com/developer/appservice/create-app?starterKit=687d91f2-ba5c-3914-8da5-57876c1f772a">
     <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
     </a>
 </p>
