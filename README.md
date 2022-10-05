@@ -31,7 +31,7 @@ The web application has a health endpoint which is accessible at `<host>:<port>/
 
 ## Steps
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/java-liberty-app) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?starterKit=687d91f2-ba5c-3914-8da5-57876c1f772a) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
 ### Deploying to IBM Cloud
 
