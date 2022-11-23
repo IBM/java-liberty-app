@@ -1,7 +1,7 @@
 <server description="Sample Liberty server">
 
   <featureManager>
-      <feature>microProfile-3.3</feature>
+      <feature>microProfile-4.1</feature>
   </featureManager>
 
 <!-- Allow port override via PORT env var -->
