@@ -20,7 +20,7 @@ USER 1001
 COPY --from=builder --chown=1001:0 /app/src/main/liberty/config/ /config/
 COPY --from=builder --chown=1001:0 /app/target/*.war /config/apps
 
-RUN featureUtility installFeature microProfile-3.3
+RUN featureUtility installFeature microProfile-4.1
 
 ENV PORT 9080
 
