@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>4.1</version>
+            <version>6.0</version>
             <scope>provided</scope>
             <type>pom</type>
         </dependency>
