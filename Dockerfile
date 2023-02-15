@@ -1,5 +1,5 @@
 # Package the application as a war file
-FROM registry.access.redhat.com/ubi8/openjdk-17:1.14 AS builder
+FROM registry.access.redhat.com/ubi8/openjdk-17:1.14-10.1675788279 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
 USER root
